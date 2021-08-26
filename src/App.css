@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --default-px: 15px;
+    --default-color: skyblue;
+    --red-color: red;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.AppWrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.Block {
+    margin: 20px;
+    padding: 20px;
+    width: 280px;
+    min-height: 280px;
+    border: 2px solid var(--default-color);
+    border-radius: var(--default-px);
+}
+
+.Settings {
+    max-width: 500px;
+    flex-grow: 1;
+}
+
+.Display {
+    padding: var(--default-px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--default-color);
+    border-radius: var(--default-px);
+}
+
+.BlockWrapper {
+    margin-top: var(--default-px);
+    padding: var(--default-px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid var(--default-color);
+    border-radius: var(--default-px);
+}
+
+.Settings .BlockWrapper {
+    justify-content: center;
+}
+
+.Button {
+    max-width: 220px;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: var(--default-px);
+    background-color: var(--default-color);
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: var(--default-px);
+}
+
+.Button:first-child {
+    margin-left: 0;
+}
+
+.Button:active {
+    opacity: 0.8;
+}
+
+.Button:disabled {
+    cursor: not-allowed;
+}
+
+.value {
+    text-align: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    font-size: 35px;
+    color: black;
+    font-weight: 700;
+}
+
+.inputValue {
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.inputValue span {
+    margin-right: 20px;
+}
+
+.inputValue input {
+    width: 100%;
+    max-width: 220px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-sizing: content-box;
+}
+
+.inputValue input:focus {
+    outline: none;
+}
+
+.error {
+    color: var(--red-color);
+}
+
+.error input {
+    background-color: var(--red-color);
+}
+
+.textValue.value.error,
+.textValue.value {
+    font-size: 25px;
+    font-weight: bold;
+}
