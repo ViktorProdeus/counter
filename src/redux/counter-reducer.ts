@@ -5,7 +5,7 @@ export enum ACTIONS_TYPE {
     CHANGE_STATUS_SET_BTN = 'Counter/CHANGE-STATUS-SET-BTN',
     CHANGE_STATUS_INC_BTN = 'Counter/CHANGE-STATUS-INC-BTN',
     CHANGE_STATUS_RESET_BTN = 'Counter/CHANGE-STATUS-RESET-BTN',
-};
+}
 
 const initialState = {
     start: 0,
@@ -40,7 +40,7 @@ export const counterReducer = (state: initialStateType = initialState, action: A
             return {
                 ...state, ...action.payload
             }
-    };
+    }
 
     return state;
 };
