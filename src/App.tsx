@@ -28,31 +28,6 @@ const App = () => {
     const isSettingBlockActive = counter.setBtnStatus === !disable && counter.incBtnStatus === disable && counter.resetBtnStatus === disable;
 
 
-    const getItemFromLocalStorage = (name: string, fn: (value: number) => void) => {
-        let valueAsString = localStorage.getItem(name);
-        if (valueAsString) {
-            let newValue = JSON.parse(valueAsString);
-           
-            dispatch(fn(newValue));
-        }
-    };
-
-
-    useEffect(() => {
-        getItemFromLocalStorage('startValue', changeStart);
-        getItemFromLocalStorage('maxValue', changeMax);
-        getItemFromLocalStorage('counterValue', changeValue);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-
-    useEffect(() => {
-        localStorage.setItem('maxValue', JSON.stringify(counter.max));
-        localStorage.setItem('startValue', JSON.stringify(counter.start));
-        localStorage.setItem('counterValue', JSON.stringify(counter.start));
-    }, [counter.max, counter.start, counter.value]);
-
-
     const increaseValue = () => {
         dispatch(changeValue(counter.value + 1))
     };

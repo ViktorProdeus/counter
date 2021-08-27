@@ -5,7 +5,7 @@ export enum ACTIONS_TYPE {
     CHANGE_STATUS_SET_BTN = 'Counter/CHANGE-STATUS-SET-BTN',
     CHANGE_STATUS_INC_BTN = 'Counter/CHANGE-STATUS-INC-BTN',
     CHANGE_STATUS_RESET_BTN = 'Counter/CHANGE-STATUS-RESET-BTN',
-}
+};
 
 const initialState = {
     start: 0,
@@ -14,7 +14,9 @@ const initialState = {
     setBtnStatus: true,
     incBtnStatus: false,
     resetBtnStatus: false,
-}
+};
+
+export type initialStateType = typeof initialState;
 
 type ActionsType =
     ActionStartType
@@ -24,52 +26,7 @@ type ActionsType =
     | ActionIncBtnStatusType
     | ActionResetBtnStatusType;
 
-type ActionStartType = {
-    type: ACTIONS_TYPE.CHANGE_START_VALUE
-    payload: {
-        start: number
-    }
-};
 
-type ActionMaxType = {
-    type: ACTIONS_TYPE.CHANGE_MAX_VALUE
-    payload: {
-        max: number
-    }
-};
-
-type ActionValueType = {
-    type: ACTIONS_TYPE.CHANGE_VALUE
-    payload: {
-        value: number
-    }
-};
-
-type ActionSetBtnStatusType = {
-    type: ACTIONS_TYPE.CHANGE_STATUS_SET_BTN
-    payload: {
-        setBtnStatus: boolean
-    }
-
-};
-
-type ActionIncBtnStatusType = {
-    type: ACTIONS_TYPE.CHANGE_STATUS_INC_BTN
-    payload: {
-        incBtnStatus: boolean
-    }
-
-};
-
-type ActionResetBtnStatusType = {
-    type: ACTIONS_TYPE.CHANGE_STATUS_RESET_BTN
-    payload: {
-        resetBtnStatus: boolean
-    }
-
-};
-
-export type initialStateType = typeof initialState;
 
 export const counterReducer = (state: initialStateType = initialState, action: ActionsType): initialStateType => {
     switch (action.type) {
@@ -83,10 +40,10 @@ export const counterReducer = (state: initialStateType = initialState, action: A
             return {
                 ...state, ...action.payload
             }
-    }
+    };
 
     return state;
-}
+};
 
 export const changeStart = (start: number) => {
     return {
@@ -95,7 +52,10 @@ export const changeStart = (start: number) => {
             start,
         },
     }
-}
+};
+
+type ActionStartType = ReturnType<typeof changeStart>;
+
 export const changeMax = (max: number) => {
     return {
         type: ACTIONS_TYPE.CHANGE_MAX_VALUE,
@@ -103,7 +63,10 @@ export const changeMax = (max: number) => {
             max,
         },
     }
-}
+};
+
+type ActionMaxType = ReturnType<typeof changeMax>;
+
 export const changeValue = (value: number) => {
     return {
         type: ACTIONS_TYPE.CHANGE_VALUE,
@@ -111,7 +74,10 @@ export const changeValue = (value: number) => {
             value,
         },
     }
-}
+};
+
+type ActionValueType = ReturnType<typeof changeValue>;
+
 export const changeStatusSetBtn = (status: boolean) => {
     return {
         type: ACTIONS_TYPE.CHANGE_STATUS_SET_BTN,
@@ -119,7 +85,10 @@ export const changeStatusSetBtn = (status: boolean) => {
             setBtnStatus: status,
         },
     }
-}
+};
+
+type ActionSetBtnStatusType = ReturnType<typeof changeStatusSetBtn>;
+
 export const changeStatusIncBtn = (status: boolean) => {
     return {
         type: ACTIONS_TYPE.CHANGE_STATUS_INC_BTN,
@@ -127,7 +96,10 @@ export const changeStatusIncBtn = (status: boolean) => {
             incBtnStatus: status,
         },
     }
-}
+};
+
+type ActionIncBtnStatusType = ReturnType<typeof changeStatusIncBtn>;
+
 export const changeStatusResetBtn = (status: boolean) => {
     return {
         type: ACTIONS_TYPE.CHANGE_STATUS_RESET_BTN,
@@ -135,4 +107,6 @@ export const changeStatusResetBtn = (status: boolean) => {
             resetBtnStatus: status,
         },
     }
-}
+};
+
+type ActionResetBtnStatusType = ReturnType<typeof changeStatusResetBtn>;
